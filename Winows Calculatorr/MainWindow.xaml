@@ -22,11 +22,6 @@
                 Background="#f3f3f3"
                 FontSize="20"
             >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
             </Button>
 
             <Label
@@ -47,7 +42,7 @@
             </Grid.RowDefinitions>
 
             <TextBox 
-                Name="yariout" 
+                Name="OutputSmall" 
                 Grid.Row="0"
                 Foreground="#a0a0a0"  Background="#f3f3f3"
                 Text="" TextWrapping="Wrap" FontSize="14" FontWeight="ExtraLight"
@@ -84,66 +79,36 @@
                     Content="MC" Grid.Column="0" Margin="2"
                     FontFamily="Segoe UI" Foreground="#646970"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
 
                 <Button 
                     Content="MR" Grid.Column="1" Margin="2"
                     FontFamily="Segoe UI" Foreground="#646970"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
 
                 <Button 
                     Content="M+" Grid.Column="2" Margin="2"
                     FontFamily="Segoe UI" Foreground="#222222"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
 
                 <Button 
                     Content="M-" Grid.Column="3" Margin="2"
                     FontFamily="Segoe UI" Foreground="#222222"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
 
                 <Button 
                     Content="MS" Grid.Column="4" Margin="2"
                     FontFamily="Segoe UI" Foreground="#222222"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
 
                 <Button 
                     Content="M" Grid.Column="5" Margin="2" Padding="0,0,15,0"
                     FontFamily="Segoe UI" Foreground="#646970"
                     Background="#f3f3f3" BorderThickness="0">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
-                        </Style>
-                    </Button.Resources>
                 </Button>
             </Grid>
         </Grid>
@@ -174,162 +139,89 @@
                 <ColumnDefinition Width="75"/>
             </Grid.ColumnDefinitions>
 
-            <!--faiz CE C Sil-->
-
             <Button 
                 Name="faizbtn" Content="%" 
                 Grid.Row="0" FontSize="16" FontWeight="Normal" 
                 FontFamily="Arvo" 
-                Background="#f9f9f9" BorderThickness="0" Click="faizbtn_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#f9f9f9" BorderThickness="0">
             </Button>
 
             <Button 
                 Name="CEbtn" Content="CE" 
                 Grid.Row="0" Grid.Column="2" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Click="CEbtn_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#f9f9f9" BorderThickness="0" >
             </Button>
 
             <Button 
                 Name="Cbtn" Content="C"
                 Grid.Row="0" Grid.Column="4" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Click="CEbtn_Click">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#f9f9f9" BorderThickness="0">
             </Button>
 
             <Button 
                 Name="deletbtn" Content="⌫" 
                 Grid.Row="0" Grid.Column="6" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Height="45" VerticalAlignment="Top" Click="deletbtn_Click" >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#f9f9f9" BorderThickness="0" Height="45" VerticalAlignment="Top" >
 
             </Button>
 
-            <!--1/x x2 2x /-->
 
             <Button 
                 Name="btn1bolx" Content="1/x" 
                 Grid.Row="2" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Click="btn1bolx_Click" 
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#f9f9f9" BorderThickness="0">
             </Button>
 
             <Button
                 Name="btnkvadat" Content="x²" 
                 Grid.Row="2" Grid.Column="2" 
                 FontSize="14" Background="#f9f9f9"
-                BorderThickness="0" Click="btnkvadat_Click" 
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0">
             </Button>
 
             <Button 
                 Name="btnkokalti" Content="²√¯x" 
                 Grid.Row="2" Grid.Column="4" 
                 FontSize="14" Background="#f9f9f9" 
-                BorderThickness="0" Click="btnkokalti_Click" 
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0">
+
             </Button>
 
             <Button 
                 Name="btnbolme" Content="÷" 
                 Grid.Row="2" Grid.Column="6" 
                 FontSize="26" Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btnbolme_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToProses_Click">
             </Button>
-
-            <!--7 8 9 vurma-->
 
             <Button 
                 Name="btn7" Content="7"
                 Grid.Row="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+               >
             </Button>
 
             <Button 
                 Name="btn8" Content="8" 
                 Grid.Row="4" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+               >
             </Button>
 
             <Button 
                 Name="btn9" Content="9" 
                 Grid.Row="4" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"> 
             </Button>
 
             <Button 
                 Name="vurmabtn" Content="×"
                 Grid.Row="4" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="vurmabtn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToProses_Click">
             </Button>
 
             <!--4 5 6 -->
@@ -338,55 +230,31 @@
                 Name="btn4" Content="4" 
                 Grid.Row="6" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" 
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0"  Click="btnToOutbut_Click"
+                >
             </Button>
 
             <Button 
                 Name="btn5" Content="5"
                 Grid.Row="6" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+                >
             </Button>
 
             <Button 
                 Name="btn6" Content="6"
                 Grid.Row="6" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" 
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0"  Click="btnToOutbut_Click"
+                >
             </Button>
 
             <Button 
                 Name="btncix" Content="−" 
                 Grid.Row="6" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btncix_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToProses_Click">
             </Button>
 
             <!--1 2 3 +-->
@@ -395,108 +263,59 @@
                 Name="btn1" Content="1" 
                 Grid.Row="8" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+               >
             </Button>
 
             <Button 
                 Name="btn2" Content="2" 
                 Grid.Row="8" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+              >
             </Button>
 
             <Button 
                 Name="btn3" Content="3"
                 Grid.Row="8" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToOutbut_Click"
+              >
             </Button>
 
             <Button 
                 Name="buttonAddition" Content="+" 
                 Grid.Row="8" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="buttonAddition_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0" Click="btnToProses_Click" >
             </Button>
 
-            <!--+- 0 . =-->
             <Button 
                 Name="btnpluscix" Content="±" 
                 Grid.Row="10" FontSize="16"
-                Background="#ffffff" BorderThickness="0"  FontFamily="Segoe UI" Click="btnpluscix_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#ffffff" BorderThickness="0"  FontFamily="Segoe UI" >
             </Button>
 
             <Button 
                 Name="btn0" Content="0" 
                 Grid.Row="10" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0" 
-                Click="btn_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0"  Click="btnToOutbut_Click"
+                >
             </Button>
 
             <Button 
                 Name="btnnoqte" Content="." 
                 Grid.Row="10" Grid.Column="4" FontSize="16"
-                Background="#ffffff" BorderThickness="0" FontFamily="Segoe UI" Click="btnnoqte_Click"
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                Background="#ffffff" BorderThickness="0" >
             </Button>
 
             <Button 
                 Name="btnberaber" Content="=" 
                 Grid.Row="10" Grid.Column="6" 
-                Background="#3f484d" FontSize="26" 
+                Background="#0067c0" FontSize="26" 
                 Foreground="White"
-                BorderThickness="0" Click="btnberaber_Click" 
-            >
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
+                BorderThickness="0">
             </Button>
 
 
