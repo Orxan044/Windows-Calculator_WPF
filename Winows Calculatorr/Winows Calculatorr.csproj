@@ -8,4 +8,17 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\calculator_icon.png" />
+    <None Remove="Images\history.png" />
+    <None Remove="Images\WindowsMenyu.png" />
+    <None Remove="Images\winodows.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\calculator_icon.png" />
+    <Resource Include="Images\history.png" />
+    <Resource Include="Images\WindowsMenyu.png" />
+  </ItemGroup>
+
 </Project>

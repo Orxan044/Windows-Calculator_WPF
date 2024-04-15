@@ -8,8 +8,8 @@
         Title="Calculator"
         Height="506" Width="332"
         WindowStartupLocation="CenterScreen" 
-        ResizeMode="CanMinimize" Background="#f3f3f3" >
-    <!--Icon="/Images/calculator_icon.png">-->
+        ResizeMode="CanMinimize" Background="#f3f3f3" 
+        Icon="/Images/calculator_icon.png">
 
     <Grid Height="490" Width="332" Background="#f3f3f3" >
 
@@ -30,6 +30,9 @@
                 Background="#f3f3f3" Margin="30,-4,0,0"
                 >Standard
             </Label>
+
+            <Image Source="Images\history.png" Margin="276,1,25,1" ></Image>
+            <Image Source="Images\WindowsMenyu.png" Margin="99,6,124,2" ></Image>
         </Grid>
 
         <!--ekrana cixarma-->
@@ -47,7 +50,7 @@
                 Foreground="#a0a0a0"  Background="#f3f3f3"
                 Text="" TextWrapping="Wrap" FontSize="14" FontWeight="ExtraLight"
                 TextAlignment="Right" IsReadOnly="True"
-                BorderThickness="0" Margin="0,0,23,0"
+                BorderThickness="0" Margin="0,0,23,0" Grid.ColumnSpan="2"
             />
 
             <TextBox 
@@ -57,7 +60,7 @@
                 FontSize="47" FontWeight="DemiBold" FontFamily="Segoe UI"
                 TextWrapping="NoWrap" TextAlignment="Right" Text="0" 
                 BorderThickness="0" IsReadOnly="True"
-                MaxLength="10" MaxLines="1" Margin="0,0,23,0"
+                MaxLength="10" MaxLines="1" Margin="0,0,23,0" Grid.ColumnSpan="2"
             />
 
         </Grid>
@@ -155,7 +158,7 @@
             <Button 
                 Name="Cbtn" Content="C"
                 Grid.Row="0" Grid.Column="4" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0">
+                Background="#f9f9f9" BorderThickness="0" Click="btn_removeall_Click">
             </Button>
 
             <Button 
@@ -167,20 +170,20 @@
 
 
             <Button 
-                Name="btn1bolx" Content="1/x" 
+                Name="btnFraction" Content="1/x" 
                 Grid.Row="2" FontSize="14" 
                 Background="#f9f9f9" BorderThickness="0">
             </Button>
 
             <Button
-                Name="btnkvadat" Content="x²" 
+                Name="btnDoubleMulti" Content="x²" 
                 Grid.Row="2" Grid.Column="2" 
                 FontSize="14" Background="#f9f9f9"
                 BorderThickness="0">
             </Button>
 
             <Button 
-                Name="btnkokalti" Content="²√¯x" 
+                Name="btnSqrt" Content="²√¯x" 
                 Grid.Row="2" Grid.Column="4" 
                 FontSize="14" Background="#f9f9f9" 
                 BorderThickness="0">
@@ -188,17 +191,17 @@
             </Button>
 
             <Button 
-                Name="btnbolme" Content="÷" 
+                Name="btnDivision" Content="÷" 
                 Grid.Row="2" Grid.Column="6" 
                 FontSize="26" Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btnToProses_Click">
+                BorderThickness="0" Click="btn_operator_Click">
             </Button>
 
             <Button 
                 Name="btn7" Content="7"
                 Grid.Row="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
                >
             </Button>
 
@@ -206,7 +209,7 @@
                 Name="btn8" Content="8" 
                 Grid.Row="4" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
                >
             </Button>
 
@@ -214,14 +217,14 @@
                 Name="btn9" Content="9" 
                 Grid.Row="4" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"> 
+                BorderThickness="0" Click="Button_Click">
             </Button>
 
             <Button 
-                Name="vurmabtn" Content="×"
+                Name="btnMulti" Content="×"
                 Grid.Row="4" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btnToProses_Click">
+                BorderThickness="0" Click="btn_operator_Click">
             </Button>
 
             <!--4 5 6 -->
@@ -230,7 +233,7 @@
                 Name="btn4" Content="4" 
                 Grid.Row="6" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"  Click="btnToOutbut_Click"
+                BorderThickness="0"  Click="Button_Click"
                 >
             </Button>
 
@@ -238,7 +241,7 @@
                 Name="btn5" Content="5"
                 Grid.Row="6" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
                 >
             </Button>
 
@@ -246,15 +249,15 @@
                 Name="btn6" Content="6"
                 Grid.Row="6" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"  Click="btnToOutbut_Click"
+                BorderThickness="0"  Click="Button_Click"
                 >
             </Button>
 
             <Button 
-                Name="btncix" Content="−" 
+                Name="btnMinus" Content="−" 
                 Grid.Row="6" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btnToProses_Click">
+                BorderThickness="0" Click="btn_operator_Click">
             </Button>
 
             <!--1 2 3 +-->
@@ -263,7 +266,7 @@
                 Name="btn1" Content="1" 
                 Grid.Row="8" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
                >
             </Button>
 
@@ -271,7 +274,7 @@
                 Name="btn2" Content="2" 
                 Grid.Row="8" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
               >
             </Button>
 
@@ -279,19 +282,19 @@
                 Name="btn3" Content="3"
                 Grid.Row="8" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="btnToOutbut_Click"
+                BorderThickness="0" Click="Button_Click"
               >
             </Button>
 
             <Button 
-                Name="buttonAddition" Content="+" 
+                Name="btnPlus" Content="+"
                 Grid.Row="8" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btnToProses_Click" >
+                BorderThickness="0" Click="btn_operator_Click" >
             </Button>
 
             <Button 
-                Name="btnpluscix" Content="±" 
+                Name="btnNeqative" Content="±" 
                 Grid.Row="10" FontSize="16"
                 Background="#ffffff" BorderThickness="0"  FontFamily="Segoe UI" >
             </Button>
@@ -300,12 +303,12 @@
                 Name="btn0" Content="0" 
                 Grid.Row="10" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0"  Click="btnToOutbut_Click"
+                BorderThickness="0"  Click="Button_Click"
                 >
             </Button>
 
             <Button 
-                Name="btnnoqte" Content="." 
+                Name="btnComman" Content="." 
                 Grid.Row="10" Grid.Column="4" FontSize="16"
                 Background="#ffffff" BorderThickness="0" >
             </Button>
@@ -315,7 +318,7 @@
                 Grid.Row="10" Grid.Column="6" 
                 Background="#0067c0" FontSize="26" 
                 Foreground="White"
-                BorderThickness="0">
+                BorderThickness="0" Click="Result_Click">
             </Button>
 
 
