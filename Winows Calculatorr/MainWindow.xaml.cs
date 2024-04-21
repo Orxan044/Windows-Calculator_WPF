@@ -1,300 +1,191 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+
 namespace Winows_Calculatorr;
 
 public partial class MainWindow : Window
 {
+    char process = ' ';
+    double number = 0;
+    private bool checkNumber { get; set; }
+
     public MainWindow()
     {
         InitializeComponent();
     }
 
-    private bool TrueFalse { get; set; }
-    int count_command, count_add, count_negative, count_multi, count_divide, count_minus, count_sqrt = 0;
-    private double _Result { get; set; }
-    private double Resultcopy { get; set; }
-    private double X { get; set; }
-    private string Symbol { get; set; }
-
-
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void btnClear_Click(object sender, RoutedEventArgs e)
     {
-        if (Output.Text == "Invalid input")
-        {
-            btnDivision.IsEnabled = true;
-            btnMinus.IsEnabled = true;
-            btnMulti.IsEnabled = true;
-            btnSqrt.IsEnabled = true;
-            btnPlus.IsEnabled = true;
-            btnComman.IsEnabled = true;
-            btnNeqative.IsEnabled = true;
-            btnDoubleMulti.IsEnabled = true;
-            btnFraction.IsEnabled = true;
-        }
+        Output.Text = "0";
+        OutputSmall.Text = " ";
+        number = 0;
+        process = ' ';
+    }
 
-        if (TrueFalse)
-        {
-            Output.Text = null;
-        }
+    private void btn_Click(object sender, RoutedEventArgs e)
+    {
+        if (checkNumber) Output.Text = null;
+        
         if (sender is Button btn)
         {
-            if (Output.Text == "0" || Output.Text == "-0") Output.Text = btn.Content.ToString();
-            else
-            {
-                Output.Text += btn.Content;
-            }
+            if (Output.Text == "0" || Output.Text == "-0") Output.Text = btn.Content.ToString();            
+            else Output.Text += btn.Content;
+            
         }
-        if (TrueFalse) X = Convert.ToDouble(Output.Text);
-        TrueFalse = false;
+        checkNumber = false;
+    }
+    private void btnDot_Click(object sender, RoutedEventArgs e)
+    {
+        if (!Output.Text.Contains('.'))
+            Output.Text += btnComman.Content;
+
     }
 
-
-    private void btn_comman_Click(object sender, RoutedEventArgs e)
+    private void btnBackSpace_Click(object sender, RoutedEventArgs e)
     {
-        if (count_command == 0)
+        if (Output.Text.Length > 0)
+            Output.Text = Output.Text.Remove(Output.Text.Length - 1, 1);
+        if (Output.Text.Length == 0)
         {
-            Output.Text += ".";
-            ++count_command;
+            number = 0;
+            process = ' ';
         }
+        OutputSmall.Text = " ";
     }
 
-    private void btn_removeall_Click(object sender, RoutedEventArgs e)
+    private void CheckProcess()
     {
-        if (Output.Text == "Invalid input")
+        if (number == 0)
         {
-            btnDivision.IsEnabled = true;
-            btnMinus.IsEnabled = true;
-            btnMulti.IsEnabled = true;
-            btnSqrt.IsEnabled = true;
-            btnPlus.IsEnabled = true;
-            btnComman.IsEnabled = true;
-            btnNeqative.IsEnabled = true;
-            btnDoubleMulti.IsEnabled = true;
-            btnFraction.IsEnabled = true;
-        }
-        Output.Text = null;
-        count_command = 0;
-        count_negative = 0;
-    }
-
-    private void btn_deleteone_Click(object sender, RoutedEventArgs e)
-    {
-        if (Output.Text.Length == 1)
-        {
-            Output.Text = "0";
+            number = double.Parse(Output.Text);
+            OutputSmall.Text = number.ToString() + process;
         }
         else
-        {
-            Output.Text = Output.Text.Remove(Output.Text.Length - 1, 1); 
-
-            if (Output.Text[Output.Text.Length - 1] == '.')
+            switch (process)
             {
-                Output.Text = Output.Text.Remove(Output.Text.Length - 1, 1);
-                count_command = 0;
-
+                case '+':
+                    number += double.Parse(Output.Text);
+                    Output.Text = number.ToString();
+                    OutputSmall.Text = number.ToString() + process;
+                    break;
+                case '-':
+                    number -= double.Parse(Output.Text);
+                    Output.Text = number.ToString();
+                    OutputSmall.Text = number.ToString() + process;
+                    break;
+                case '÷':
+                    number /= double.Parse(Output.Text);
+                    Output.Text = number.ToString();
+                    OutputSmall.Text = number.ToString() + process;
+                    break;
+                case 'x':
+                    number *= double.Parse(Output.Text);
+                    Output.Text = number.ToString();
+                    OutputSmall.Text = number.ToString() + process;
+                    break;
+                case '^':
+                    number *= number;
+                    OutputSmall.Text = $"sqr({Output.Text})";
+                    Output.Text = number.ToString();
+                    break;
+                case '#':
+                    number = Math.Sqrt(double.Parse(Output.Text));
+                    OutputSmall.Text = $"√({Output.Text})";
+                    Output.Text = number.ToString();
+                    break;
+                case '?':
+                    number = 1 / (double.Parse(Output.Text));
+                    OutputSmall.Text =$"1/({Output.Text})";
+                    Output.Text = number.ToString();
+                    break;
+                default:
+                    break;
             }
-            if (Output.Text[Output.Text.Length - 1] == '-')
-            {
-                Output.Text = Output.Text.Remove(Output.Text.Length - 1, 1);
-                count_negative = 0;
-            }
-
-        }
-
+        
     }
 
-    private void btn_negative_Click(object sender, RoutedEventArgs e)
+    private void btnPlus_Click(object sender, EventArgs e)
     {
-        if (count_negative == 0)
-        {
-            Output.Text = Output.Text.Insert(0, "-");
-            ++count_negative;
-        }
-        else if (count_negative == 1)
-        {
-            Output.Text = Output.Text.Remove(0, 1);
-            count_negative = 0;
-        }
+        process = '+';
+        CheckProcess();
+        checkNumber = true;
     }
 
-
-    private void btn_operator_Click(object sender, RoutedEventArgs e)
+    private void btnMult_Click(object sender, EventArgs e)
     {
-        if (sender is Button btn)
-        {
-            if (btn.Content.ToString() == "+")
-            {
-                Resultcopy = Convert.ToDouble(Output.Text);
-                Symbol = "+";
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-                count_add = 0;
-            }
-            else if (btn.Content.ToString() == "-")
-            {
-                Resultcopy = Convert.ToDouble(Output.Text);
-                Symbol = "-";
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-                count_minus = 0;
-            }
-            else if (btn.Content.ToString() == "x")
-            {
-                Resultcopy = Convert.ToDouble(Output.Text);
-                Symbol = "x";
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-                count_multi = 0;
-
-            }
-            else if (btn.Content.ToString() == "÷")
-            {
-                Resultcopy = Convert.ToDouble(Output.Text);
-                Symbol = "÷";
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-                count_divide = 0;
-            }
-            else if (btn.Content.ToString() == "x²")
-            {
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-                Resultcopy = Convert.ToDouble(Output.Text);
-
-                Output.Text = (Resultcopy * Resultcopy).ToString();
-            }
-            else if (btn.Content.ToString() == "√х")
-            {
-                TrueFalse = true;
-                count_command = 0;
-                count_negative = 0;
-
-                Resultcopy = Convert.ToDouble(Output.Text);
-
-                if (Resultcopy > 0)
-                {
-                    Output.Text = Math.Sqrt(Resultcopy).ToString();
-
-                }
-                else if (Resultcopy < 0)
-                {
-                    Output.Text = "Invalid input";
-                    btnDivision.IsEnabled = false;
-                    btnMinus.IsEnabled = false;
-                    btnMulti.IsEnabled = false;
-                    btnSqrt.IsEnabled = false;
-                    btnPlus.IsEnabled = false;
-                    btnComman.IsEnabled = false;
-                    btnNeqative.IsEnabled = false;
-                    btnDoubleMulti.IsEnabled = false;
-                    btnFraction.IsEnabled = false;
-                }
-
-            }
-
-        }
+        process = 'x';
+        CheckProcess();
+        checkNumber = true;
+    }
+    private void btnDivide_Click(object sender, EventArgs e)
+    {
+        process = '÷';
+        CheckProcess();
+        checkNumber = true;
+    }
+    private void btnMinus_Click(object sender, EventArgs e)
+    {
+        process = '-';
+        CheckProcess();
+        checkNumber = true;
     }
 
-    private void Result_Click(object sender, RoutedEventArgs e)
+    private void btnEqual_Click(object sender, EventArgs e)
     {
-        if (Output.Text == "Invalid input")
-        {
-            btnDivision.IsEnabled = true;
-            btnMinus.IsEnabled = true;
-            btnMulti.IsEnabled = true;
-            btnSqrt.IsEnabled = true;
-            btnPlus.IsEnabled = true;
-            btnComman.IsEnabled = true;
-            btnNeqative.IsEnabled = true;
-            btnDoubleMulti.IsEnabled = true;
-            btnFraction.IsEnabled = true;
+        process = '=';
+        CheckProcess();
+        Output.Text = number.ToString();
+        checkNumber = true;
+    }
+
+    private void btnPower_Click(object sender, EventArgs e)
+    {
+        process = '^';
+        number = double.Parse(Output.Text);
+        CheckProcess();
+        Output.Text = number.ToString();
+        checkNumber = true;
+    }
+
+    private void btnSqrt_Click(object sender, EventArgs e)
+    {
+        number = double.Parse(Output.Text);
+        process = '#';
+        CheckProcess();
+        Output.Text = number.ToString();
+        checkNumber = true;
+    }
+
+    private void btnPercentage_Click(object sender, EventArgs e)
+    {
+        if (process == ' ')
             Output.Text = "0";
-        }
-        ++count_add;
-        ++count_minus;
-        ++count_multi;
-        ++count_divide;
-        ++count_sqrt;
-
-        _Result = Convert.ToDouble(Output.Text);
-
-
-
-        if (Symbol == "+")
-        {
-            if (count_add == 1)
-            {
-                Output.Text = (Resultcopy + _Result).ToString();
-            }
-            else if (count_add != 1)
-            {
-                Output.Text = (X + _Result).ToString();
-            }
-
-        }
-        else if (Symbol == "-")
-        {
-            if (count_minus == 1)
-            {
-                Output.Text = (Resultcopy - _Result).ToString();
-            }
-            else if (count_minus != 1)
-            {
-                Output.Text = (_Result - X).ToString();
-            }
-
-        }
-        else if (Symbol == "x")
-        {
-            if (count_multi == 1)
-            {
-                Output.Text = (Resultcopy * _Result).ToString();
-            }
-            else if (count_multi != 1)
-            {
-                Output.Text = (X * _Result).ToString();
-            }
-
-        }
-        else if (Symbol == "√х")
-        {
-            if (count_multi == 1)
-            {
-                Output.Text = (Math.Sqrt(_Result)).ToString();
-            }
-            else if (count_multi != 1)
-            {
-                Output.Text = (X * _Result).ToString();
-            }
-
-        }
-        else if (Symbol == "÷")
-        {
-            if (count_divide == 1)
-            {
-                if (_Result == 0)
-                {
-                    MessageBox.Show("Error");
-                }
-                else Output.Text = (Resultcopy / _Result).ToString();
-            }
-            else if (count_divide != 1)
-            {
-                if (X == 0)
-                {
-                    MessageBox.Show("Error");
-                }
-                else Output.Text = (_Result / X).ToString();
-            }
-
-        }
+        else
+            number = (double.Parse(Output.Text) / number) * 100;
+        Output.Text = number.ToString();
+        OutputSmall.Text = $"{Output.Text}";
+        checkNumber = true;
     }
 
+    private void bntOneDivivdedBy_Click(object sender, EventArgs e)
+    {
+        OutputSmall.Text = "1/x";
+        number = double.Parse(Output.Text);
+        process = '?';
+        CheckProcess();
+        Output.Text = number.ToString();
+        checkNumber = true;
+    }
+
+    private void btnPlusMinus_Click(Object sender, EventArgs e)
+    {
+        if (double.Parse(Output.Text) > 0)
+            Output.Text = Output.Text.Insert(0, "-");
+        else
+            Output.Text = (0 - double.Parse(Output.Text)).ToString();
+    }
 
 }
+
+

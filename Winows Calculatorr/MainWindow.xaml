@@ -47,7 +47,7 @@
             <TextBox 
                 Name="OutputSmall" 
                 Grid.Row="0"
-                Foreground="#a0a0a0"  Background="#f3f3f3"
+                Foreground="Black"  Background="#f3f3f3"
                 Text="" TextWrapping="Wrap" FontSize="14" FontWeight="ExtraLight"
                 TextAlignment="Right" IsReadOnly="True"
                 BorderThickness="0" Margin="0,0,23,0" Grid.ColumnSpan="2"
@@ -146,47 +146,48 @@
                 Name="faizbtn" Content="%" 
                 Grid.Row="0" FontSize="16" FontWeight="Normal" 
                 FontFamily="Arvo" 
-                Background="#f9f9f9" BorderThickness="0">
+                Background="#f9f9f9" BorderThickness="0" Click="btnPercentage_Click">
             </Button>
 
             <Button 
                 Name="CEbtn" Content="CE" 
                 Grid.Row="0" Grid.Column="2" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" >
+                Background="#f9f9f9" BorderThickness="0" Click="btnClear_Click" >
             </Button>
 
             <Button 
                 Name="Cbtn" Content="C"
                 Grid.Row="0" Grid.Column="4" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Click="btn_removeall_Click">
+                Background="#f9f9f9" BorderThickness="0" Click="btnClear_Click">
             </Button>
 
             <Button 
                 Name="deletbtn" Content="⌫" 
                 Grid.Row="0" Grid.Column="6" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0" Height="45" VerticalAlignment="Top" >
-
+                Background="#f9f9f9" BorderThickness="0" Height="45" 
+                VerticalAlignment="Top" Click="btnBackSpace_Click" >
+           
             </Button>
 
 
             <Button 
                 Name="btnFraction" Content="1/x" 
                 Grid.Row="2" FontSize="14" 
-                Background="#f9f9f9" BorderThickness="0">
+                Background="#f9f9f9" BorderThickness="0" Click="bntOneDivivdedBy_Click">
             </Button>
 
             <Button
                 Name="btnDoubleMulti" Content="x²" 
                 Grid.Row="2" Grid.Column="2" 
                 FontSize="14" Background="#f9f9f9"
-                BorderThickness="0">
+                BorderThickness="0" Click="btnPower_Click">
             </Button>
 
             <Button 
                 Name="btnSqrt" Content="²√¯x" 
                 Grid.Row="2" Grid.Column="4" 
                 FontSize="14" Background="#f9f9f9" 
-                BorderThickness="0">
+                BorderThickness="0" Click="btnSqrt_Click">
 
             </Button>
 
@@ -194,14 +195,14 @@
                 Name="btnDivision" Content="÷" 
                 Grid.Row="2" Grid.Column="6" 
                 FontSize="26" Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btn_operator_Click">
+                BorderThickness="0" Click="btnDivide_Click">
             </Button>
 
             <Button 
                 Name="btn7" Content="7"
                 Grid.Row="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
                >
             </Button>
 
@@ -209,7 +210,7 @@
                 Name="btn8" Content="8" 
                 Grid.Row="4" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
                >
             </Button>
 
@@ -217,14 +218,14 @@
                 Name="btn9" Content="9" 
                 Grid.Row="4" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click">
+                BorderThickness="0" Click="btn_Click">
             </Button>
 
             <Button 
                 Name="btnMulti" Content="×"
                 Grid.Row="4" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btn_operator_Click">
+                BorderThickness="0" Click="btnMult_Click">
             </Button>
 
             <!--4 5 6 -->
@@ -233,7 +234,7 @@
                 Name="btn4" Content="4" 
                 Grid.Row="6" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"  Click="Button_Click"
+                BorderThickness="0"  Click="btn_Click"
                 >
             </Button>
 
@@ -241,7 +242,7 @@
                 Name="btn5" Content="5"
                 Grid.Row="6" Grid.Column="2" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
                 >
             </Button>
 
@@ -249,7 +250,7 @@
                 Name="btn6" Content="6"
                 Grid.Row="6" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0"  Click="Button_Click"
+                BorderThickness="0"  Click="btn_Click"
                 >
             </Button>
 
@@ -257,7 +258,7 @@
                 Name="btnMinus" Content="−" 
                 Grid.Row="6" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btn_operator_Click">
+                BorderThickness="0" Click="btnMinus_Click">
             </Button>
 
             <!--1 2 3 +-->
@@ -266,7 +267,7 @@
                 Name="btn1" Content="1" 
                 Grid.Row="8" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
                >
             </Button>
 
@@ -274,7 +275,7 @@
                 Name="btn2" Content="2" 
                 Grid.Row="8" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
               >
             </Button>
 
@@ -282,7 +283,7 @@
                 Name="btn3" Content="3"
                 Grid.Row="8" Grid.Column="4" FontSize="18" 
                 Background="#ffffff" FontFamily="Segoe UI"
-                BorderThickness="0" Click="Button_Click"
+                BorderThickness="0" Click="btn_Click"
               >
             </Button>
 
@@ -290,27 +291,27 @@
                 Name="btnPlus" Content="+"
                 Grid.Row="8" Grid.Column="6" FontSize="26" 
                 Background="#f9f9f9" FontWeight="Light" 
-                BorderThickness="0" Click="btn_operator_Click" >
+                BorderThickness="0" Click="btnPlus_Click" >
             </Button>
 
             <Button 
                 Name="btnNeqative" Content="±" 
                 Grid.Row="10" FontSize="16"
-                Background="#ffffff" BorderThickness="0"  FontFamily="Segoe UI" >
+                Background="#ffffff" BorderThickness="0"  FontFamily="Segoe UI" Click="btnPlusMinus_Click" >
             </Button>
 
             <Button 
                 Name="btn0" Content="0" 
                 Grid.Row="10" Grid.Column="2" FontSize="18" 
                 Background="#ffffff"  FontFamily="Segoe UI"
-                BorderThickness="0"  Click="Button_Click"
+                BorderThickness="0"  Click="btn_Click"
                 >
             </Button>
 
             <Button 
                 Name="btnComman" Content="." 
                 Grid.Row="10" Grid.Column="4" FontSize="16"
-                Background="#ffffff" BorderThickness="0" >
+                Background="#ffffff" BorderThickness="0" Click="btnDot_Click" >
             </Button>
 
             <Button 
@@ -318,7 +319,7 @@
                 Grid.Row="10" Grid.Column="6" 
                 Background="#0067c0" FontSize="26" 
                 Foreground="White"
-                BorderThickness="0" Click="Result_Click">
+                BorderThickness="0" Click="btnEqual_Click">
             </Button>
 
 
